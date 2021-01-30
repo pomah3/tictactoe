@@ -6,7 +6,7 @@ import '/frontend/css/tictactoe.css';
 const Game = {
     data() {
         return {
-            status: "connecting", // "connecting" | "before" | "my_turn" | "rival_turn" | "loose" | "win"
+            status: "connecting", // "connecting" | "before" | "my_turn" | "rival_turn" | "loose" | "win" | "draw"
             board: [
                 ['', '', ''],
                 ['', '', ''],

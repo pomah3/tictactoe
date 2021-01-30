@@ -81,12 +81,40 @@ class Game {
             return;
         }
 
+        if (this.check_draw()) {
+            this.player1.send(JSON.stringify({
+                "type": "draw",
+                board: this.board
+            }));
+            this.player2.send(JSON.stringify({
+                "type": "draw",
+                board: this.board
+            }));
+
+            console.log("Game ended!");
+            games.delete(this);
+            console.log(`Game count: ${games.size}`);
+
+            return;
+        }
+
+
         let that_player = player == this.player1 ? this.player2 : this.player1;
         that_player.send(JSON.stringify({
             type: "move_done",
             board: this.board
         }));
         this.player_now = that_player;
+    }
+
+    check_draw() {
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                if (this.board[i][j] == '')
+                    return false;
+            }
+        }
+        return true;
     }
 
     check_state() {

@@ -46,6 +46,10 @@ export default {
             win() {
                 this.game.board = data.board;
                 this.game.status = "win";
+            },
+            draw() {
+                this.game.board = data.board;
+                this.game.status = "draw";
             }
         };
 

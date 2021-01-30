@@ -8,7 +8,7 @@
         "build": "npx webpack",
         "dev": "npm run build && npm start",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "heroku-postbuild": "npm build"
+        "heroku-postbuild": "npm run build"
     },
     "author": "",
     "license": "ISC",

@@ -34,7 +34,7 @@ const Game = {
 
 function main() {
     let game = createApp(Game).mount("#app");
-    ws.connect(game, "ws://localhost:8000");
+    ws.connect(game, `ws://${location.host}`);
 }
 
 document.addEventListener("DOMContentLoaded", main);

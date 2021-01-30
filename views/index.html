@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tic Tac Toe!</title>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+        <div v-if="status == 'connecting'">
+            Connecting
+        </div>
+        <div v-if="status == 'before'">
+            Searcing for rival
+        </div>
+
+        <div v-if="['my_turn', 'rival_turn', 'win', 'loose'].includes(status)">
+
+            <div class="board">
+                <div class="row" v-for="(n, i) in 3">
+                    <div @click="move(i,j)" class="cell" v-for="(n, j) in 3">
+                        {{ board[i][j] }}
+                    </div>
+                </div>
+            </div>
+
+            <div v-if="status=='my_turn' ">
+                Your turn
+            </div>
+            <div v-if="status=='rival_turn' ">
+                Rival turn
+            </div>
+            <div v-if="status=='win' ">
+                You won
+            </div>
+            <div v-if="status=='loose' ">
+                You loose
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

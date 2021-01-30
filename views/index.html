@@ -17,7 +17,7 @@
             Searcing for rival
         </div>
 
-        <div v-if="['my_turn', 'rival_turn', 'win', 'loose'].includes(status)">
+        <div v-if="['my_turn', 'rival_turn', 'win', 'loose', 'draw'].includes(status)">
 
             <div class="board">
                 <div class="row" v-for="(n, i) in 3">
@@ -39,8 +39,14 @@
             <div v-if="status=='loose' ">
                 You loose
             </div>
+            <div v-if="status=='draw' ">
+                Draw
+            </div>
+
+            <div v-if="['win', 'loose', 'draw'].includes(status)">
+                <button onclick="location.reload()">Play again</button>
+            </div>
         </div>
-    </div>
 
 </body>
 
